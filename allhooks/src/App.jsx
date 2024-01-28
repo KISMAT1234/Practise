@@ -1,34 +1,45 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
+import React, {useState} from "react"
 
+function App(){
+  const[form, setForm] = useState({
+    name:"",
+    email: "",
+    password:"",
+    address:"",
+  });
+
+const handleInput = (e) => {
+  const name = e.target.name;
+  const email = e.target.email;
+  const password = e.target.password;
+  const address= e.target.address;
+
+  setForm((prev)=>{
+    return {...prev, [name]:value}
+  });
+
+  console.log(name);
+
+}
+  
+  
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+    <> 
+    <h1>Registration form</h1>
+    <form submit="">
+       <input type="text" name="name" onChange={handleInput} value={form.name} placeholder="name"/><br></br>
+       
+       <input type="email" name="email" onChange={handleInput} value={form.email} placeholder="emial"/><br></br>
+       
+       <input type="password" name="password" onChange={handleInput} value={form.password} placeholder="password"/><br></br>
+       
+       <input type="text" name="address" onChange={handleInput} value={form.address} placeholder="address"/><br></br>
+       <button >register</button>
+    </form>
+    <p>{`My name is ${form.name}  and I live at ${form.address}`}</p>
     </>
+
   )
 }
 
