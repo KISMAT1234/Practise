@@ -2,7 +2,7 @@ import React, {useState, useEffect, useDispatch} from "react";
 import './App.css'
 
 function App() {
-  const  [loading, setLoading]= useS tate(true)
+  const  [loading, setLoading]= useState(true)
   const dispatch = useDispatch()
   return (
     <>
